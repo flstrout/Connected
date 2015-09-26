@@ -26,13 +26,15 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity implements VehicleDataTask.VehicleDataReceiver{
 
     private static final String TAG = "MainActivity";
-    private Context context;
+    public static Context context;
     private ProgressDialog pd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        context = this;
 
         Button refreshData = (Button) findViewById(R.id.btn_refresh);
         refreshData.setOnClickListener(new View.OnClickListener() {
@@ -60,6 +62,9 @@ public class MainActivity extends AppCompatActivity implements VehicleDataTask.V
                 VehicleDataTask aTask = new VehicleDataTask(this);
                 aTask.execute();
 
+            } else {
+                Toast noNetwork = Toast.makeText(this, "Network Not Available!", Toast.LENGTH_SHORT);
+                noNetwork.show();
             }
         }
     }

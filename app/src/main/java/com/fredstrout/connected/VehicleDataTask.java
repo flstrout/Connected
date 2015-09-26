@@ -6,13 +6,12 @@ package com.fredstrout.connected;
 // Java 1 - Project 4 -
 
 import android.app.ProgressDialog;
-import android.content.Context;
 import android.os.AsyncTask;
+
 import java.util.ArrayList;
 
 public class VehicleDataTask extends AsyncTask<Void, Void, ArrayList<Vehicle>> {
 
-    private Context context;
     private ProgressDialog pd;
 
     public interface VehicleDataReceiver {
@@ -27,14 +26,14 @@ public class VehicleDataTask extends AsyncTask<Void, Void, ArrayList<Vehicle>> {
 
     @Override
     protected void onPreExecute() {
-        super.onPreExecute();
-//        pd = new ProgressDialog(context);
-//        pd.setTitle("File Transfer");
-//        pd.setMessage("Downloading");
-//        pd.setCancelable(false);
-//        pd.setIndeterminate(true);
-//        pd.setProgress(0);
-//        pd.show();
+        super.onPreExecute();;
+        pd = new ProgressDialog (MainActivity.context);
+        pd.setTitle("File Transfer");
+        pd.setMessage("Downloading Data");
+        pd.setCancelable(false);
+        pd.setIndeterminate(true);
+        pd.setProgress(0);
+        pd.show();
     }
 
     @Override

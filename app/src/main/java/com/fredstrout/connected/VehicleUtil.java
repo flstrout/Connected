@@ -5,9 +5,6 @@ package com.fredstrout.connected;
 // 9/23/2015
 // Java 1 - Project 4 -
 
-import android.util.Log;
-import android.widget.Spinner;
-
 import org.apache.commons.io.IOUtils;
 import org.json.JSONArray;
 import org.json.JSONException;
